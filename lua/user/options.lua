@@ -32,7 +32,11 @@ local options = {
   wrap = false,                            -- display lines as one long line
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
+  lazyredraw=true,
+  autowrite=true,
+  autoread=true,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  guicursor="n-v-c-sm:block,i-ci-ve:block-blinkon1,r-cr-o:hor20"
 }
 
 vim.opt.shortmess:append "c"
