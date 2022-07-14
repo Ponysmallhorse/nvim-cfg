@@ -94,7 +94,53 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
-
+  use {"theHamsta/nvim-dap-virtual-text"}
+  use {"mfussenegger/nvim-dap"}
+  use {"rcarriga/nvim-dap-ui",
+    requires = {"mfussenegger/nvim-dap"},
+    config = function()
+      require("dapui").setup({
+        icons = {
+          expanded = "-",
+          collapsed = "+"
+        },
+        mappings = {
+          -- Use a table to apply multiple mappings
+          expand = {"<CR>", "<2-LeftMouse>"},
+          open = "o",
+          remove = "d",
+          edit = "e",
+          repl = "r",
+        },
+        layouts = {
+          {
+            elements = {
+              -- You can change the order of elements in the sidebar
+              "scopes",
+              "breakpoints",
+              "stacks",
+              "watches"
+            },
+            size=40,
+            position = "left" -- Can be "left" or "right"
+          },
+          {
+            elements = {
+              "repl",
+              "console"
+            },
+            position = "bottom", -- Can be "bottom" or "top"
+            size = 10,
+        }
+        },
+        floating = {
+          max_height = nil, -- These can be integers or a float between 0 and 1.
+          max_width = nil   -- Floats will be treated as percentage of your screen.
+        }
+      })
+    end
+  }
+  use {"mfussenegger/nvim-dap-python"}
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

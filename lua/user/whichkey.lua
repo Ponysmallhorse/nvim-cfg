@@ -108,7 +108,6 @@ local mappings = {
 
   g = {
     name = "Git",
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -182,6 +181,14 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+  d = {
+    name = "Debugger",
+    r = { "<cmd>DapContinue<CR>"},
+    t = { "<cmd>DapTerminate<CR>"},
+    p = { "<cmd>DapToggleRepl<CR>"},
+    g = { "<cmd>lua require'dapui'.toggle()<CR>"},
+    f = { "<cmd>lua require'dapui'.float_element()<CR>"},
+  }
 }
 
 which_key.setup(setup)
