@@ -86,7 +86,7 @@ local mappings = {
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>Bdelete %<CR>", "Quit" },
+  ["q"] = { "<cmd>q<CR>", "Quit" },
   ["Q"] = { "<cmd>qa!<CR>", "Force Quit All" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -96,6 +96,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["r"] = { "<cmd>so %<cr>", "source file" },
 
   p = {
     name = "Packer",
@@ -108,6 +109,9 @@ local mappings = {
 
   g = {
     name = "Git",
+    g = { "<cmd>Git<cr>", "Open Git UI"},
+    m = { "<cmd>Git mergetool<cr>", "Git Mergetool"},
+    B = { "<cmd>Git blame<cr>", "Git blame"},
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -188,24 +192,25 @@ local mappings = {
     p = { "<cmd>DapToggleRepl<CR>", "Dap REPL toggle"},
     g = { "<cmd>lua require'dapui'.toggle()<CR>", "Toggle UI"},
     f = { "<cmd>lua require'dapui'.float_element()<CR>", "Float UI element"},
+    R = {"<cmd>lua require'dap.ext.vscode'.load_launchjs()<cr>", "Reload launch config"}
   },
-  v = {
-    name = "Vimspector",
-    G = { "<cmd>lua require('vimspector').Generate_debug_profile()<cr>", "Generate Debug Profile" },
-    I = { "<cmd>VimspectorInstall<cr>", "Install" },
-    U = { "<cmd>VimspectorUpdate<cr>", "Update" },
-    R = { "<cmd>call vimspector#RunToCursor()<cr>", "Run to Cursor" },
-    c = { "<cmd>call vimspector#Continue()<cr>", "Continue" },
-    i = { "<cmd>call vimspector#StepInto()<cr>", "Step Into" },
-    o = { "<cmd>call vimspector#StepOver()<cr>", "Step Over" },
-    s = { "<cmd>call vimspector#Launch()<cr>", "Start" },
-    t = { "<cmd>call vimspector#ToggleBreakpoint()<cr>", "Toggle Breakpoint" },
-    u = { "<cmd>call vimspector#StepOut()<cr>", "Step Out" },
-    S = { "<cmd>call vimspector#Stop()<cr>", "Stop" },
-    r = { "<cmd>call vimspector#Restart()<cr>", "Restart" },
-    x = { "<cmd>VimspectorReset<cr>", "Reset" },
-    H = { "<cmd>lua require('vimspector').Toggle_human_mode()<cr>", "Toggle HUMAN mode" },
-  },
+  -- v = {
+  --   name = "Vimspector",
+  --   G = { "<cmd>lua require('vimspector').Generate_debug_profile()<cr>", "Generate Debug Profile" },
+  --   I = { "<cmd>VimspectorInstall<cr>", "Install" },
+  --   U = { "<cmd>VimspectorUpdate<cr>", "Update" },
+  --   R = { "<cmd>call vimspector#RunToCursor()<cr>", "Run to Cursor" },
+  --   c = { "<cmd>call vimspector#Continue()<cr>", "Continue" },
+  --   i = { "<cmd>call vimspector#StepInto()<cr>", "Step Into" },
+  --   o = { "<cmd>call vimspector#StepOver()<cr>", "Step Over" },
+  --   s = { "<cmd>call vimspector#Launch()<cr>", "Start" },
+  --   t = { "<cmd>call vimspector#ToggleBreakpoint()<cr>", "Toggle Breakpoint" },
+  --   u = { "<cmd>call vimspector#StepOut()<cr>", "Step Out" },
+  --   S = { "<cmd>call vimspector#Stop()<cr>", "Stop" },
+  --   r = { "<cmd>call vimspector#Restart()<cr>", "Restart" },
+  --   x = { "<cmd>VimspectorReset<cr>", "Reset" },
+  --   H = { "<cmd>lua require('vimspector').Toggle_human_mode()<cr>", "Toggle HUMAN mode" },
+  -- },
 }
 
 which_key.setup(setup)
