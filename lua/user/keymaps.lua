@@ -26,18 +26,18 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-->", ":resize -2<CR>", opts)
+keymap("n", "<A-=>", ":resize +2<CR>", opts)
+keymap("n", "<A-[>", ":vertical resize -2<CR>", opts)
+keymap("n", "<A-]>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 
 -- Insert -- Press jk fast to exit insert mode 
 keymap("i", "jk", "<ESC>", opts)
@@ -69,4 +69,10 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 
 --keymap("n", "<C-3>", ":so %<CR>", opts)
+--DAP actions maps
+keymap("n", "<F12>", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<F10>", ":lua require'dap'.set_breakpoint(vim.fn.input('Break on condition: '))", opts)
 
+keymap("n", "<F2>", ":lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F3>", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F4>", ":lua require'dap'.step_out()<CR>", opts)

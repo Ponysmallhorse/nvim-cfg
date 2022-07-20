@@ -65,4 +65,9 @@ nvim_tree.setup {
       },
     },
   },
+  filters = {
+    dotfiles = false,
+    custom = {},
+    exclude = {}
+  }
 }
