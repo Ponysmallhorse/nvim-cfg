@@ -71,7 +71,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 --keymap("n", "<C-3>", ":so %<CR>", opts)
 --DAP actions maps
 keymap("n", "<F12>", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
-keymap("n", "<F10>", ":lua require'dap'.set_breakpoint(vim.fn.input('Break on condition: '))", opts)
+keymap("n", "<F10>", ":lua require'dap'.set_breakpoint(vim.fn.input('Break on condition: '))<CR>", opts)
 
 keymap("n", "<F2>", ":lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F3>", ":lua require'dap'.step_into()<CR>", opts)

@@ -146,6 +146,7 @@ return packer.startup(function(use)
   use {'puremourning/vimspector'}
   use {'antoinemadec/FixCursorHold.nvim'}
   use {'tpope/vim-fugitive'}
+  use {'machakann/vim-highlightedyank'}
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
