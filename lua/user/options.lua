@@ -35,8 +35,12 @@ local options = {
   lazyredraw = true,
   autowrite = true,
   autoread = true,
+  foldlevel = 20,
+  foldmarker = "{{{,}}}",
+  foldmethod="expr",
+  foldexpr="nvim_treesitter#foldexpr()",
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  guicursor = "n-v-c-sm:block,i-ci-ve:block-blinkon1,r-cr-o:hor20"
+  guicursor = "n-c-sm:block-Cursor,i-ci-ve:block-iCursor-blinkwait0-blinkoff1-blinkon1,r-cr-o:hor10,v:block-vCursor"
 }
 
 vim.opt.shortmess:append "c"
@@ -48,3 +52,6 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd [[highlight iCursor guibg=magenta4]]
+vim.cmd [[highlight Cursor guibg=DarkSlateGray4]]
+vim.cmd [[highlight vCursor guibg=MediumPurple4]]

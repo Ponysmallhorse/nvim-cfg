@@ -147,6 +147,21 @@ return packer.startup(function(use)
   use {'antoinemadec/FixCursorHold.nvim'}
   use {'tpope/vim-fugitive'}
   use {'machakann/vim-highlightedyank'}
+  use {"simrat39/symbols-outline.nvim",
+         config = function ()
+            vim.g.symbols_outline = {
+              auto_preview = false,
+              auto_close = true,
+        }
+         end}
+  -- use {
+  --   'gelguy/wilder.nvim',
+  --   config = function()
+  --     -- config goes here
+  --     local wilder = require('wilder')
+  --     wilder.setup({modes = {':', '/', '?'}})
+  --   end,
+  -- }
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

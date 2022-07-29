@@ -68,6 +68,11 @@ nvim_tree.setup {
   filters = {
     dotfiles = false,
     custom = {},
-    exclude = {}
+    exclude = {
+      ".git",
+      ".github",
+      ".venv",
+      ".idea"
+    } 
   }
 }
